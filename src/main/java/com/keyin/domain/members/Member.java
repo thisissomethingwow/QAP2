@@ -10,8 +10,8 @@ import java.util.Date;
 @Entity
 public class Member {
     @Id
-    @SequenceGenerator(name = "course_sequence", sequenceName = "course_sequence", allocationSize = 1, initialValue=1)
-    @GeneratedValue(generator = "course_sequence")
+    @SequenceGenerator(name = "member_sequence", sequenceName = "member_sequence", allocationSize = 1, initialValue=1)
+    @GeneratedValue(generator = "member_sequence")
     private long id;
 
     private String name;
