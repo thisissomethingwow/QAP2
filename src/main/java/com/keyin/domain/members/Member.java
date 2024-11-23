@@ -20,7 +20,7 @@ public class Member {
     private String phoneNumber;
     private boolean membershipTypePremium; //if its = to true the type is Premium
     private Date membershipStartDate;
-    private Date membershipDuration;
+    private Date membershipEndDate;
 
 
     public long getId() {
@@ -79,12 +79,12 @@ public class Member {
         this.membershipStartDate = membershipStartDate;
     }
 
-    public Date getMembershipDuration() {
-        return membershipDuration;
+    public Date getMembershipEndDate() {
+        return membershipEndDate;
     }
 
-    public void setMembershipDuration(Date membershipDuration) {
-        this.membershipDuration = membershipDuration;
+    public void setMembershipEndDate(Date membershipEndDate) {
+        this.membershipEndDate = membershipEndDate;
     }
 
     public Member() { //for ease of testing
@@ -97,7 +97,7 @@ public class Member {
         this.phoneNumber = phoneNumber;
         this.membershipTypePremium = membershipTypePremium;
         this.membershipStartDate = membershipStartDate;
-        this.membershipDuration = membershipDuration;
+        this.membershipEndDate = membershipDuration;
     }
 
     public Member(long id, String name, String address, String email, String phoneNumber, boolean membershipTypePremium, Date membershipStartDate, Date membershipDuration) {
@@ -108,6 +108,6 @@ public class Member {
         this.phoneNumber = phoneNumber;
         this.membershipTypePremium = membershipTypePremium;
         this.membershipStartDate = membershipStartDate;
-        this.membershipDuration = membershipDuration;
+        this.membershipEndDate = membershipDuration;
     }
 }
