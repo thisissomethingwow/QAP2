@@ -2,7 +2,7 @@ package com.keyin.domain.members;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -30,10 +30,10 @@ public class MemberController {
         return memberService.getMemberByName(name);
    }
 
-//    @GetMapping("/membership_search")
-//    public List<Member> getMemberByMembershipType(@RequestParam("membership_type_premium") boolean type){
-//        return memberService.getMemberByMembershipType(type);
-//    }
+    @GetMapping("/membership_search")
+    public List<Member> getMemberByIsPremium(@RequestParam("is_premium") boolean isPremium){
+        return memberService.getMemberByIsPremium(isPremium);
+    }
 
     @GetMapping("/phoneNumber_search") //http://localhost:8080/members/member_search?phoneNumber=4444444444
     public List<Member> getMemberByPhoneNumber(@RequestParam("phoneNumber") String phoneNumber){
@@ -46,7 +46,7 @@ public class MemberController {
     }
 
     @GetMapping("/endDate_search")
-    public List<Member> getMemberByEndDate(@RequestParam("endDate") Date endDate){
-        return memberService.getMemberByEndDate(endDate);
+    public List<Member> getMemberByMembershipEndDate(@RequestParam("membershipEndDate")@DateTimeFormat(pattern = "yyyy-MM-dd") Date membershipEndDate){
+        return memberService.getMemberByMembershipEndDate(membershipEndDate);
     }
 }

@@ -23,9 +23,9 @@ public class MemberService {
         return memberRepository.findByName(name);
     }
 
-//    public List<Member> getMemberByMembershipType(boolean type){
-//        return memberRepository.findByMembershipType(type);
-//    }
+    public List<Member> getMemberByIsPremium(boolean isPremium){
+        return memberRepository.findByIsPremium(isPremium);
+    }
 
     public List<Member> getMemberByPhoneNumber(String phoneNumber){
         return memberRepository.findByPhoneNumber(phoneNumber);
@@ -35,8 +35,8 @@ public class MemberService {
         return memberRepository.findByEmail(email);
     }
 
-    public List<Member> getMemberByEndDate(Date endDate){
-        return memberRepository.findByEndDate(endDate);
+    public List<Member> getMemberByMembershipEndDate(Date membershipEndDate){
+        return memberRepository.findByMembershipEndDate(membershipEndDate);
     }
 
 

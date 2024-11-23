@@ -1,9 +1,6 @@
 package com.keyin.domain.members;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -18,8 +15,10 @@ public class Member {
     private String address;
     private String email;
     private String phoneNumber;
-    private boolean membershipTypePremium; //if its = to true the type is Premium
+    private boolean isPremium; //if its = to true the type is Premium
+    @Temporal(TemporalType.DATE)
     private Date membershipStartDate;
+    @Temporal(TemporalType.DATE)
     private Date membershipEndDate;
 
 
@@ -63,12 +62,12 @@ public class Member {
         this.phoneNumber = phoneNumber;
     }
 
-    public boolean isMembershipTypePremium() {
-        return membershipTypePremium;
+    public boolean isPremium() {
+        return isPremium;
     }
 
-    public void setMembershipTypePremium(boolean membershipTypePremium) {
-        this.membershipTypePremium = membershipTypePremium;
+    public void setPremium(boolean premium) {
+        this.isPremium = premium;
     }
 
     public Date getMembershipStartDate() {
@@ -95,7 +94,7 @@ public class Member {
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.membershipTypePremium = membershipTypePremium;
+        this.isPremium = membershipTypePremium;
         this.membershipStartDate = membershipStartDate;
         this.membershipEndDate = membershipDuration;
     }
@@ -106,7 +105,7 @@ public class Member {
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.membershipTypePremium = membershipTypePremium;
+        this.isPremium = membershipTypePremium;
         this.membershipStartDate = membershipStartDate;
         this.membershipEndDate = membershipDuration;
     }
