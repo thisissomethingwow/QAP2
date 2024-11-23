@@ -16,7 +16,7 @@ public interface MemberRepository extends CrudRepository<Member, Long> {
 
     public Member findByEmail(String email);
 
-    List<Member> findByMembershipEndDate(Date membershipEndDate);
+    public List<Member> findByMembershipEndDate(Date membershipEndDate);
 
 }
 
