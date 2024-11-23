@@ -13,7 +13,9 @@ public class Tournament {
     @GeneratedValue(generator = "tournament_sequence")
     private long id;
 
+    @Temporal(TemporalType.DATE)
     private Date startDate;
+    @Temporal(TemporalType.DATE)
     private Date endDate;
     private String location;
     private double entryFee;
