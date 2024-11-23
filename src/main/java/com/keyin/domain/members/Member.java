@@ -1,9 +1,6 @@
 package com.keyin.domain.members;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -18,9 +15,11 @@ public class Member {
     private String address;
     private String email;
     private String phoneNumber;
-    private boolean membershipTypePremium; //if its = to true the type is Premium
+    private boolean isPremium; //if its = to true the type is Premium
+    @Temporal(TemporalType.DATE)
     private Date membershipStartDate;
-    private Date membershipDuration;
+    @Temporal(TemporalType.DATE)
+    private Date membershipEndDate;
 
 
     public long getId() {
@@ -63,12 +62,12 @@ public class Member {
         this.phoneNumber = phoneNumber;
     }
 
-    public boolean isMembershipTypePremium() {
-        return membershipTypePremium;
+    public boolean isPremium() {
+        return isPremium;
     }
 
-    public void setMembershipTypePremium(boolean membershipTypePremium) {
-        this.membershipTypePremium = membershipTypePremium;
+    public void setPremium(boolean premium) {
+        this.isPremium = premium;
     }
 
     public Date getMembershipStartDate() {
@@ -79,12 +78,12 @@ public class Member {
         this.membershipStartDate = membershipStartDate;
     }
 
-    public Date getMembershipDuration() {
-        return membershipDuration;
+    public Date getMembershipEndDate() {
+        return membershipEndDate;
     }
 
-    public void setMembershipDuration(Date membershipDuration) {
-        this.membershipDuration = membershipDuration;
+    public void setMembershipEndDate(Date membershipEndDate) {
+        this.membershipEndDate = membershipEndDate;
     }
 
     public Member() { //for ease of testing
@@ -95,9 +94,9 @@ public class Member {
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.membershipTypePremium = membershipTypePremium;
+        this.isPremium = membershipTypePremium;
         this.membershipStartDate = membershipStartDate;
-        this.membershipDuration = membershipDuration;
+        this.membershipEndDate = membershipDuration;
     }
 
     public Member(long id, String name, String address, String email, String phoneNumber, boolean membershipTypePremium, Date membershipStartDate, Date membershipDuration) {
@@ -106,8 +105,8 @@ public class Member {
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.membershipTypePremium = membershipTypePremium;
+        this.isPremium = membershipTypePremium;
         this.membershipStartDate = membershipStartDate;
-        this.membershipDuration = membershipDuration;
+        this.membershipEndDate = membershipDuration;
     }
 }
