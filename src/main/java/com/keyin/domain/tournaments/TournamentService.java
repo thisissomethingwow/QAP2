@@ -33,7 +33,7 @@ public class TournamentService {
     }
 
     public Tournament getTournamentById(long id){
-        return tournamentRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        return tournamentRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("tournament n ot found with id "+id));
     }
 
     public List<Member> getMembers(long id){

@@ -11,5 +11,5 @@ import java.util.List;
 public interface TournamentRepository extends CrudRepository<Tournament,Long> {
     public List<Tournament> findByStartDate(Date startDate);
     public List<Tournament> findByLocation(String location);
-    public List<Member> getMembers(long id);
+
 }
