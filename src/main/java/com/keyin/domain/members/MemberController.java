@@ -1,8 +1,10 @@
 package com.keyin.domain.members;
 
 
+import com.keyin.domain.tournaments.Tournament;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -49,4 +51,14 @@ public class MemberController {
     public List<Member> getMemberByMembershipEndDate(@RequestParam("membershipEndDate")@DateTimeFormat(pattern = "yyyy-MM-dd") Date membershipEndDate){
         return memberService.getMemberByMembershipEndDate(membershipEndDate);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Member> updateMember(@PathVariable long id, @RequestBody Member member){
+        return ResponseEntity.ok((memberService.updateMember(id,member)));
+    }
+
+
+
+
+
 }

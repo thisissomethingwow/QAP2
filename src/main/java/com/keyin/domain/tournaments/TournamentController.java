@@ -2,8 +2,10 @@ package com.keyin.domain.tournaments;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,5 +35,14 @@ public class TournamentController {
     public List<Tournament> getTournamentByLocation(@RequestParam("location")String location){
         return tournamentService.getTournamentByLocation(location);
     }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Tournament> updateTournament(@PathVariable long id,@RequestBody Tournament tournament){
+        return ResponseEntity.ok(tournamentService.updateTournament(id,tournament));
+    }
+
+
+
 
 }
