@@ -1,10 +1,12 @@
 package com.keyin.domain.members;
 
+import com.keyin.domain.tournaments.Tournament;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MemberService {
@@ -38,6 +40,23 @@ public class MemberService {
     public List<Member> getMemberByMembershipEndDate(Date membershipEndDate){
         return memberRepository.findByMembershipEndDate(membershipEndDate);
     }
+
+    public Member updateMember(long id,Member updatedMember){
+        Optional<Member> memberToUpdateOptional = memberRepository.findById(id);
+        if (memberToUpdateOptional.isPresent()){
+            Member memberToUpdate = memberToUpdateOptional.get();
+            memberToUpdate.setName(updatedMember.getName());
+            memberToUpdate.setAddress(updatedMember.getAddress());
+            memberToUpdate.setEmail(updatedMember.getEmail());
+            memberToUpdate.setPhoneNumber(updatedMember.getPhoneNumber());
+            memberToUpdate.setPremium(updatedMember.isPremium());
+            memberToUpdate.setMembershipStartDate(updatedMember.getMembershipStartDate());
+            memberToUpdate.setMembershipEndDate(updatedMember.getMembershipEndDate());
+            return memberRepository.save(memberToUpdate);
+        }
+        return null;
+    }
+
 
 
 
