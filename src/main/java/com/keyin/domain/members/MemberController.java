@@ -27,7 +27,7 @@ public class MemberController {
         return memberService.addMember(member);
     }
 
-   @GetMapping("/name_search")  //http://localhost:8080/members/member_search?name=name
+   @GetMapping("/name_search")  //http://localhost:8080/members/name_search?name=name
    public Member getMemberByName(@RequestParam("name") String name){
         return memberService.getMemberByName(name);
    }
@@ -37,7 +37,7 @@ public class MemberController {
         return memberService.getMemberByIsPremium(isPremium);
     }
 
-    @GetMapping("/phoneNumber_search") //http://localhost:8080/members/member_search?phoneNumber=4444444444
+    @GetMapping("/phoneNumber_search")
     public List<Member> getMemberByPhoneNumber(@RequestParam("phoneNumber") String phoneNumber){
         return memberService.getMemberByPhoneNumber(phoneNumber);
     }
